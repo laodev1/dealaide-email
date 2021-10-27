@@ -3,8 +3,8 @@
 
 ## Install
 
-    $ git clone https://github.com/LandAdvisors/esm-syntax-node-express.git
-    $ cd esm-syntax-node-express
+    $ git clone https://github.com/LandAdvisors/node-express-esm-starter.git
+    $ cd node-express-esm-starter
     $ npm install
 
 ## Start
