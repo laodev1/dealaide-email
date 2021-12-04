@@ -1,7 +1,6 @@
 import { html} from "lit";
 import { Router } from "@vaadin/router";
 import { StateView } from "./state-view.js";
-import tailwindcss from "./styles/tailwind.css"
 
 export class AppRoot extends StateView {
   static get properties() {
