@@ -1,4 +1,4 @@
-import { html } from 'lit-element';
+import { html } from 'lit';
 import { StateView } from "../state-view";
 export class HeaderSection extends StateView {
     render(){
