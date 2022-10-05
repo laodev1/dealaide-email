@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { StateView } from "./state-view";
-import './components/header-section.js';
+import './components/submission-form'
 class MainView extends StateView {
   static get properties() {
     return {
@@ -13,24 +13,12 @@ class MainView extends StateView {
    
               <!-- Start main area-->
               <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8 ">
-             ${!this.loading ? `` : `Fetching Data Sources...`}
-               <header-section></header-section>
-              </div>
-     
+              <submission-form></submission-form>
+  </div>
               <!-- End main area -->
 
             
     `;
-  }
-  async firstUpdated(){
-         const data = await this.fetchData('/api');
-   console.log(data);
-  }
-    async fetchData(path,options={'Accept':'application/json'}){
-    const response = await fetch(path,options);
-    const data = await response.json();
-    this.sources = data;
-    return data;
   }
 
 

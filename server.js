@@ -5,7 +5,7 @@ import logger from 'morgan';
 var app = express();
 import http from 'http'
 const server = http.createServer(app);
-const PORT = 5800;
+const PORT = 5700;
 import apiRouter from './routes/api.js';
 app.use(logger('dev'));
 app.use(express.json());

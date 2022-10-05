@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "@vaadin/router": "^1.7.4",
+    "better-sqlite3": "^7.6.2",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "lit": "^2.0.0-rc.2",

@@ -20,7 +20,8 @@ export default {
     css(),
      copy({
       targets: [
-        { src: './assets/**/*', dest: 'dist/assets' }
+        { src: './assets/**/*', dest: 'dist/assets' },
+        { src: './favicon.ico', dest: 'dist' }
       ]
     })
   ]
