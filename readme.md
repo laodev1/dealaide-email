@@ -1,6 +1,7 @@
 
 # Module Syntax Node-Express Dealaide Email Starter
 
+![Project Screenshot](./screenshot.png) 
 ## Features
 - ES Modules syntax in Node.js
 - Express.js as the web framework
