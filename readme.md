@@ -1,9 +1,17 @@
 
-# Module Syntax Node-Express Starter
+# Module Syntax Node-Express Dealaide Email Starter
+
+## Features
+- ES Modules syntax in Node.js
+- Express.js as the web framework
+- Rollup.js for bundling JavaScript
+- Lit for building efficient web components
+- Vaadin Router for client-side routing
+- Tailwind CSS for utility classes
 
 ## Install
 
-    $ git clone https://github.com/LandAdvisors/node-express-esm-starter.git
+    $ git clone https://github.com/laodev1/dealaide-email.git
     $ cd node-express-esm-starter
     $ npm install
 
@@ -19,21 +27,48 @@
 ```.
 ├── assets                  # Static images, icons, global styles & other assets.
 ├── routes                  # Express Routes
-│   ├── api                 ## Generic API routes and things that have not been protected with the auth middleware for obvious reasons
-├── dist                    # Compiled files
+│   ├── api.js              ## Generic API routes and things that have not been protected with the auth middleware for obvious reasons
+│   ├── helpers.js          ## Generic API routes and things that have not been protected with the auth middleware for obvious reasons
 ├── src                     # Frontend Source files
 │   ├── components          ## Web components
 │   ├── styles              ## Styles 
 │   └── app-root.js         ## Root component and frontend routing for [Lit](https://lit.dev) Application
 │   └── main-view.js        ## View that loads on the ```/``` route.
-│   └── state-view.js       ## Composable wrapper class to pass global state properties from the state management library along with a couple other methods for managing state & events.
+│   └── light-dom.js        ## Extensible class to allow rendering in the light dom (```document.querySelector etc..```) instead of the shadow root (```this.shadowRoot.querySelector```). use it like this:
+│   │                             ```javascript 
+│   │                             import {LightDom} frpm './light-dom.js'
+│   │                             class MyElement extends LightDom{
+│   │                               ...
+│   │                             }
+│   │                          
+│   │                          ```
+│   └── state-view.js       ## Composable wrapper class to pass global state properties from the state management library along with a couple other methods for managing state & events. use it like this:
+│   │                         ```javascript 
+│   │                         import {StateView} frpm './state-view.js'
+│   │                         class MyElement extends StateView{
+│   │                           static get properties() {
+│   │                              return {
+│   │                                 ...StateView.properties,
+│   │                              };
+│   │                           }
+│   │                           ...
+│   │                           handleStateEvent(e){
+│   │                              this.setState({someState:e.target.value}) // or whatever...
+│   │                              //properties will then update for every component that inherits from StateView.
+│   │                              //think about it kinda like a provider class but again, is observable and async.
+│   │                           }
+│   │                         }
+│   │                        
+│   │                        ```
 │   └── view-404.js         ## 404 error static view
-├── state                   # Global state management (Written by me. Behaves similar to Redux in structure but is observable without middleware.)
+├── state                   # Global state management (Written by me. Behaves similar to Redux in structure but is observable without middleware. Can easily be ripped out for redux if that feels like a better fit.)
 ├── index.html              # main index page
 ├── server.js               # node server
 ├── rollup.config.js        # rollup.js main config file
 ├── package.json            # main package.json file
 └── README.md               # This file
+└── LISCENSE.md             # The liscense text
+
 ```
 ## Languages & tools
 
@@ -48,91 +83,21 @@
 [Tailwind CSS](https://tailwindcss.com/)- Utility classes help you work within the constraints of a system instead of littering your stylesheets with arbitrary values. They make it easy to be consistent with color choices, spacing, typography, shadows, and everything else that makes up a well-engineered design system.
 
 
-## Comment Standards
+## Versioning
 
-### Class members
-#### Class members should be formatted as follows:
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/laodev1/dealaide-email/tags). 
 
-Short description: Use a period at the end.
-@since x.x.x: Should be 3-digit for initial introduction (e.g. @since 1.0.1). If significant changes are made, additional @since tags, versions, and descriptions should be added to serve as a changelog.
-@access: If the members is private, protected or public. Private members are intended for internal use only.
-@type: List the type of the class member.
-@property List all properties this object has in case it’s an Object. Use a period at the end.
-@member: Optionally use this to override JSDoc’s member detection in place of @type to force a class member.
-@memberof: Optionally use this to override what class this is a member of.
+## Authors
 
-```
-/**
- * Short description. (use period)
- *
- * @since  x.x.x
- * @access (private, protected, or public)
- *
- * @type     {type}
- * @property {type} key Description.
- *
- * @member   {type} realName
- * @memberof className
- */
- ```
+* **Steve Heideman** - *Initial work* - [laodev1](https://github.com/laodev1)
 
-### Functions
-#### Functions should be formatted as follows:
 
-Summary: A brief, one line explanation of the purpose of the function. Use a period at the end.
-Description: A supplement to the summary, providing a more detailed description. Use a period at the end.
-@deprecated x.x.x: Only use for deprecated functions, and provide the version the function was deprecated which should always be 3-digit (e.g. @since 3.6.0), and the function to use instead.
-@since x.x.x: Should be 3-digit for initial introduction (e.g. @since 3.6.0). If significant changes are made, additional @since tags, versions, and descriptions should be added to serve as a changelog.
-@access: Only use for functions if private. If the function is private, it is intended for internal use only, and there will be no documentation for it in the code reference.
-@class: Use for class constructors.
-@augments: For class constuctors, list direct parents.
-@mixes: List mixins that are mixed into the object.
-@alias: If this function is first assigned to a temporary variable this allows you to change the name it’s documented under.
-@memberof: Namespace that this function is contained within if JSDoc is unable to resolve this automatically.
-@static: For classes, used to mark that a function is a static method on the class constructor.
-@see: A function or class relied on.
-@link: URL that provides more information.
-@fires: Event fired by the function. Events tied to a specific class should list the class name.
-@listens: Events this function listens for. An event must be prefixed with the event namespace. Events tied to a specific class should list the class name.
-@global: Marks this function as a global function to be included in the global namespace.
-@param: Give a brief description of the variable; denote particulars (e.g. if the variable is optional, its default) with JSDoc @param syntax. Use a period at the end.
-@yield: For generator functions, a description of the values expected to be yielded from this function. As with other descriptions, include a period at the end.
-@return: Note the period after the description.
+## License
 
-```
-  /**
- * Summary. (use period)
- *
- * Description. (use period)
- *
- * @since      x.x.x
- * @deprecated x.x.x Use new_function_name() instead.
- * @access     private
- *
- * @class
- * @augments parent
- * @mixes    mixin
- *
- * @alias    realName
- * @memberof namespace
- *
- * @see  Function/class relied on
- * @link URL
- * @global
- *
- * @fires   eventName
- * @fires   className#eventName
- * @listens event:eventName
- * @listens className~event:eventName
- *
- * @param {type}   var           Description.
- * @param {type}   [var]         Description of optional variable.
- * @param {type}   [var=default] Description of optional variable with default variable.
- * @param {Object} objectVar     Description.
- * @param {type}   objectVar.key Description of a key in the objectVar parameter.
- *
- * @yield {type} Yielded value description.
- *
- * @return {type} Return value description.
- */
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone whose code was used
+* Will Xander for the idea
  ```

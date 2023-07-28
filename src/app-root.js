@@ -15,7 +15,7 @@ export class AppRoot extends StateView {
     <div class="mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
     <a href="/" class="flex items-center flex-shrink-0 px-4">
-    <img class="h-8 w-auto" src="https://landadvisors.com/wp-content/uploads/2018/11/lao-logo.svg" alt="Land Advisors Organization®"/>
+   <span style="font-size:2em">🤖 💌</span>
                 </a>
       <div class="flex flex-1">
        

@@ -1,0 +1,66 @@
+*.html
+*.md
+!index.html
+!readme.md
+!liscense.md
+dist/
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore node modules
+node_modules/
+
+# Ignore logs
+*.log
+
+# Ignore the build directory
+/dist
+
+# Ignore .env files as they usually contain sensitive information
+.env
+
+# Ignore IDE/Editor folders
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignore OS generated files
+ehthumbs.db
+Icon
+Icon?
+Desktop.ini
+
+# Ignore cache and temporary files
+*.cache
+*.class
+*.sass-cache
+*.swp
+*.swo
+*.tmp
+*.DS_Store
+*.netrwhist
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.bak
+*.swp
+*.bbl
+*.ind
+*.out
+*.aux
+*.log
+*.glo
+*.idx
+*.ist
+*.lot
+*.lof
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.gls
+*.fls
+*.fdb_latexmk
+*.blg
