@@ -19,7 +19,7 @@
 ```
    $ npm start
 ```
-## Simple build proces for changes
+## Simple build process for changes
 ```
    $ npm run build
 ```

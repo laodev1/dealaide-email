@@ -1,124 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-    <base href="/" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link href="./assets/styles/tailwind.css" rel="stylesheet" type="text/css">
-    <title>🤖 💌</title>
-    <style>
-      .loader {
-        border-top-color: #3498db;
-        -webkit-animation: spinner 1.5s linear infinite;
-        animation: spinner 1.5s linear infinite;
-      }
-      
-      @-webkit-keyframes spinner {
-        0% {
-          -webkit-transform: rotate(0deg);
-        }
-        100% {
-          -webkit-transform: rotate(360deg);
-        }
-      }
-      
-      @keyframes spinner {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-       #container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-          }
-          #container > * {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          }
-          .rounded-rect {
-          background: rgba(255, 255, 255, 0.9);
-          box-shadow: 0 0 50px -25px black;
-        }
-      
-        .flex-center {
-          position: absolute;
-      
-          display: flex;
-          flex-direction: column;
-        }
-      
-        .flex-center.left {
-          left: 0px;
-        }
-      
-        .flex-center.right {
-          right: 0px;
-        }
-      
-        .sidebar-content {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-        }
-      
-        .sidebar-toggle {
-          position: absolute;
-          width: 1.3em;
-          height: 1.3em;
-          overflow: visible;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-      
-        .sidebar-toggle.left {
-          right: -1.3em;
-        }
-      
-        .sidebar-toggle.right {
-          left: -1.3em;
-        }
-      
-        .sidebar-toggle:hover {
-          color: #0aa1cf;
-          cursor: pointer;
-        }
-      
-        .sidebar {
-          transition: transform 1s;
-          z-index: 1;
-          width: 100%;
-          height: 100%;
-        }
-        .sidebar.left {
-          width: 100%;
-        }
-        /*
+<base href="/" />
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="./assets/styles/tailwind.css" rel="stylesheet" type="text/css">
+<title>🤖 💌</title>
+<style>
+  .loader {
+    border-top-color: #3498db;
+    -webkit-animation: spinner 1.5s linear infinite;
+    animation: spinner 1.5s linear infinite;
+  }
+
+  @-webkit-keyframes spinner {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  #container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  #container>* {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rounded-rect {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 50px -25px black;
+  }
+
+  .flex-center {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-center.left {
+    left: 0px;
+  }
+
+  .flex-center.right {
+    right: 0px;
+  }
+
+  .sidebar-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar-toggle {
+    position: absolute;
+    width: 1.3em;
+    height: 1.3em;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidebar-toggle.left {
+    right: -1.3em;
+  }
+
+  .sidebar-toggle.right {
+    left: -1.3em;
+  }
+
+  .sidebar-toggle:hover {
+    color: #0aa1cf;
+    cursor: pointer;
+  }
+
+  .sidebar {
+    transition: transform 1s;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  .sidebar.left {
+    width: 100%;
+  }
+
+  /*
         The sidebar styling has them "expanded" by default, we use CSS transforms to push them offscreen
         The toggleSidebar() function removes this class from the element in order to expand it.
         */
-        .left.collapsed {
-          transform: translateX(-100%);
-        }
-          </style>
-    
+  .left.collapsed {
+    transform: translateX(-100%);
+  }
+</style>
+
 </head>
 
 <body style="background:#eee;">
-    <app-root></app-root>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <app-root></app-root>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <script type="module" src="./app-root.js"></script>
+  <script type="module" src="./app-root.js"></script>
 
 </body>
 
