@@ -14,7 +14,11 @@
     $ git clone https://github.com/laodev1/dealaide-email.git
     $ cd node-express-esm-starter
     $ npm install
+## Setting Environment Variables
 
+Make a copy of .env.example and save it as .env
+Add your ```OPENAI_API_KEY``` 
+**NOTE: MAILTRAP is optional**
 ## Start
 ```
    $ npm start
