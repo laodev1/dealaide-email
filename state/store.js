@@ -21,10 +21,11 @@ export default class Store {
                 self.events.publish('stateChange', self.state);
                 if (self.status !== 'mutation') {
                     console.warn(`You should use a mutation to set ${key}`);
+                    self.status = 'resting'; // Only reset to 'resting' if not in a mutation
                 }
-                self.status = 'resting';
                 return true;
             }
+            
         });
     }
     dispatch(actionKey, payload) {
@@ -45,9 +46,20 @@ export default class Store {
             console.log(`Mutation "${mutationKey}" doesn't exist`);
             return false;
         }
-        self.status = 'mutation';
+        self.status = 'mutation'; // Set status to mutation
         let newState = self.mutations[mutationKey](self.state, payload);
-        self.state = Object.assign(self.state, newState);
+    
+        // Apply all changes within the mutation status
+        for (let key in newState) {
+            if (newState.hasOwnProperty(key)) {
+                self.state[key] = newState[key];
+            }
+        }
+    
+        self.status = 'resting'; // Reset to 'resting' after the mutation is complete
         return true;
-    }   
+    }
+    
+    
+     
 }
